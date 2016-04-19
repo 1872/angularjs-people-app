@@ -4,7 +4,7 @@
     <h1>Interesting People ({{ people.length }})</h1>
     <div ng-repeat="person in people">
       <h2 ng-click="toggleBio(person)">{{ person.name }}</h2>
-      <p ng-if="person.bioVisible">{{ person.bio }}</p>
+      <p ng-class="{strike: person.bioVisible}">{{ person.bio }}</p>
       <button ng-click="deletePerson($index)">Delete</button>
     </div>
     <h4>Add new person:</h4>
