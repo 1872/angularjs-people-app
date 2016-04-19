@@ -1,6 +1,18 @@
 <div ng-app="app">
-  {{ 2 + 4 }}
   <div ng-controller="peopleCtrl">
-    {{ message }}
+
+    <h1>Interesting People ({{ people.length }})</h1>
+    <div ng-repeat="person in people">
+      <h2 ng-click="toggleBio(person)">{{ person.name }}</h2>
+      <p ng-if="person.bioVisible">{{ person.bio }}</p>
+      <button ng-click="deletePerson($index)">Delete</button>
+    </div>
+    <h4>Add new person:</h4>
+    <label for="">Name: </label>
+    <input ng-model="newPersonName">
+    <label for="">Bio: </label>
+    <input ng-model="newPersonBio">
+    <button ng-click="addPerson(newPersonName, newPersonBio)">Add Person</button>
+
   </div>
 </div>
