@@ -1,23 +1,12 @@
 /* global angular */
 (function() {
-  angular.module("app").controller("peopleCtrl", function($scope) {
-    $scope.people = [
-      {
-        name: "Peter Jang",
-        bio: "fdsafd safdjsa; fdsajfdslafdsla;f sdafdsaf",
-        bioVisible: true
-      },
-      {
-        name: "Jamie Gates",
-        bio: "wepurwoiqpurew ureowpqureiowur weqruowqp rpwe",
-        bioVisible: true
-      },
-      {
-        name: "Jen Wu",
-        bio: "vcnxzv.,mznn vzmv cmnzx.v cxnzm.vnczmv,.z cnzxc.,v ",
-        bioVisible: true
-      }
-    ];
+  angular.module("app").controller("peopleCtrl", function($scope, $http) {
+    
+    $scope.setup = function() {
+      $http.get('/api/v1/people.json').then(function(response) {
+        $scope.people = response.data;
+      });
+    };
 
     $scope.toggleBio = function(inputPerson) {
       inputPerson.bioVisible = !inputPerson.bioVisible;
