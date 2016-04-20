@@ -13,10 +13,13 @@
     };
 
     $scope.addPerson = function(inputPersonName, inputPersonBio) {
-      $scope.people.push({
+      var newPerson = {
         name: inputPersonName,
-        bio: inputPersonBio,
-        bioVisible: true
+        bio: inputPersonBio
+      };
+      $http.post('/api/v1/people.json', newPerson).then(function(response) {
+        console.log(response);
+        $scope.people.push(newPerson);
       });
     };
 
