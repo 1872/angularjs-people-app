@@ -8,6 +8,9 @@
       <button ng-click="deletePerson($index)">Delete</button>
     </div>
     <h4>Add new person:</h4>
+    <ul>
+      <li ng-repeat="error in errors">{{ error }}</li>
+    </ul>
     <label for="">Name: </label>
     <input ng-model="newPersonName">
     <label for="">Bio: </label>

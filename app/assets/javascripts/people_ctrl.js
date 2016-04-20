@@ -20,6 +20,9 @@
       $http.post('/api/v1/people.json', newPerson).then(function(response) {
         console.log(response);
         $scope.people.push(newPerson);
+      }, function(errorResponse) {
+        console.log(errorResponse);
+        $scope.errors = errorResponse.data.errors;
       });
     };
 
