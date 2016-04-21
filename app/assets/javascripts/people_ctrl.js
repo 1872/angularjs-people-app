@@ -30,6 +30,15 @@
       $scope.people.splice(inputIndex, 1);
     };
 
+    $scope.changeOrderAttribute = function(inputAttribute) {
+      if (inputAttribute !== $scope.orderAttribute) {
+        $scope.orderDescending = false;
+      } else {
+        $scope.orderDescending = !$scope.orderDescending;
+      }
+      $scope.orderAttribute = inputAttribute;
+    };
+
     window.$scope = $scope;
   });
 })();
