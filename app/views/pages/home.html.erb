@@ -2,7 +2,12 @@
   <div ng-controller="peopleCtrl" ng-init="setup()">
 
     <h1>Interesting People ({{ people.length }})</h1>
-    <input ng-model="nameFilter">
+    <input ng-model="nameFilter" list="names">
+
+    <datalist id="names">
+      <option ng-repeat="person in people">{{ person.name }}</option>
+    </datalist>
+
     <div>
       <button ng-click="changeOrderAttribute('name')">Order by name</button>
       <button ng-click="changeOrderAttribute('bio')">Order by bio</button>
